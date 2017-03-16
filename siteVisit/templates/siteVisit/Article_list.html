@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Hi-Tech Mobile</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium Web&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Muli&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+    <meta charset="utf-8">
+    
+  </head>
+  
+       
+<style>
+body 
+{
+  background: #c7b39b;
+  color: #fff;
+}
+</style>
+
+ 	
+ 	  <div class="PageTitle">    
+      <h1> Hi-Tech Mobile </h1>
+    </div> 
+    
+<body>	 	
+<script type="text/javascript">
+function reloadPage()
+{
+  window.location.reload()
+}
+</script>
+<input type="button" value="reload" onclick="reloadPage()" />
+    
+    
+    <div class="articleAdd">    
+      <a><a class="btn btn-default" href="{% url 'article_add'%}"> New article</button></a>
+    </div> 
+    
+    <a><a class="btn btn-default" href="{% url 'test' %}"> Test </button></a>  
+    
+    
+      	
+	 	{% for article in articles %}
+   		<hr>
+		 	 <div  class="articleTitle"> 
+			 	  <h1> <a href="{% url 'article_detail' pk=article.pk %}">{{ article.articleTitle }}  <img src= {% static  article.imagePathBegin %} width="50" height="50">  
+			 		
+			 		<div  class="articleDateAutor">  <a>{{ article.author }},   {{ article.created_date }} 
+			 		</div></a> </a></h1>
+	     </div>
+  	 	
+      
+		 	 <div  class="articleText">    
+  		  	<h4>  <a> {{ article.articleTextPreview }} </a></h4>
+		   </div>
+	 	{% endfor %}
+	 <head>
+
+
+
+
+
+</body>
+</table>  
+</html>

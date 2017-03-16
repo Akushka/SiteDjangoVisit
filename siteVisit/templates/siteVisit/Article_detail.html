@@ -1,0 +1,119 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Hi-Tech Mobile</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium Web&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Muli&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+  </head>
+  
+<style>
+body 
+{
+  background: #c7b39b;
+  color: #fff;
+
+}
+</style>  
+
+   <div class="PageTitle">    
+      <h1> <a href="{% url 'article_list'%}"> Hi-Tech Mobile </a> </h1>
+   </div> 
+   
+   
+<div class="articleAdd">    
+  <a><a class="btn btn-default" href="{% url 'article_edit' pk=article.id %}"> Edit article</button></a>
+</div>                       
+
+
+<div  class="articleTitle"> 
+	 	<h1> <a>{{ article.articleTitle }}
+	 		<div class="articleDateAutor">  <a>{{ article.author }},   {{ article.created_date }} 
+ 		</div></a> </a></h1>
+</div>
+
+	
+<script type="text/javascript">
+var all_images = [];
+  {% for imagePaths in article.imagePath %}
+		 all_images.push('{% static  imagePaths %}')
+  {% endfor %}
+
+var ImgNum = 0;
+var ImgLength = all_images.length - 1;
+
+
+function chgImg(direction) {
+ if (document.images) {
+  ImgNum = ImgNum + direction;
+  if (ImgNum > ImgLength) { ImgNum = 0; }
+  if (ImgNum < 0) { ImgNum = ImgLength; }
+  document.slide_show.src = all_images[ImgNum];
+ }
+}
+
+function chgImg2(imagePaths) {
+ if (document.images) {
+  document.slide_show.src = imagePaths ;
+ }
+}
+</script>
+
+<div>
+   {% for imagePaths in article.imagePath %}
+	   <a> <a href="javascript:chgImg2('{% static  imagePaths %}')"> <img src= {% static  imagePaths %} width="70" height="70"></a>
+	 {% endfor %}
+</div>
+
+<div><h3></h3>
+ <table border="0">
+  <tr>
+      <td colspan="3"><img src={% static  article.imagePathBegin %}  name="slide_show"></td>
+  </tr>
+ </table>
+</div>
+
+<!--
+<div><h3></h3>
+ <table border="0">
+  <tr>
+   <td align="right"><a href="javascript:chgImg(-1)">Prev</a></td>
+      <td colspan="3"><img src={% static  article.imagePathBegin %} width="400" height="400" name="slide_show"></td>
+   <td align="left"><a href="javascript:chgImg(1)">Next</a></td>
+  </tr>
+ </table>
+</div>
+-->
+	   
+<div  class="articleText">    
+ 	<h4> <a> {{ article.articleText|linebreaksbr }} </a></h4>
+</div>
+
+<p> Comment </p>
+{% for comment in comments %}
+<div  class="articleCommentAutor">  		   
+ <p>{{comment.articleAuthor}}:</p>
+</div> 
+<div  class="articleCommentText">  		   
+ <p>"{{comment.articleComment}}"</p>
+</div> 
+ <hr>
+{% endfor %}
+
+
+<div  class="articleText">   
+<form action="/siteVisit/addcomment/{{article.id}}/"	method="post" >
+	{% csrf_token %}
+	<h5> <a> Autor </a></h5>
+	<h5> <a> {{ form.articleAuthor }} </a></h5>
+	<h5> <a> Text </a></h5>
+	<h5> <a> {{ form.articleComment }}</a></h5>
+	<input type = "submit" class="button" value="Add comment">
+</form>
+</div>
+		      
+</html>

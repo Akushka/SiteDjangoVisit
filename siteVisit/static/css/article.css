@@ -1,0 +1,128 @@
+.PageAll body,{
+	     background: #c7b39b;
+       color: #fff;
+}
+.PageTitle h1, .PageTitle a{
+	     background-color: #227f96;
+	     background-size: 100%; /* Современные браузеры */
+	     padding: 12px;
+	     margin-top: 0;
+	      /*font-family: 'Orbitron';*/
+	     font-size: 60pt;
+       color: #f2ee1d;
+       /*padding-left: 15px;*/
+       text-decoration: inherit; /* Убирает подчеркивание для ссылок */
+}
+.articleTitle a{
+       margin-top: 0;
+	     font-family: 'Titillium Web';
+       font-size: 30pt;
+       color: #3634d1;
+       padding-left: 15px;
+
+}
+.articleText a, .articleText h4 {
+	     font-family: 'Muli';
+       color: #8c4707 ;
+       padding-left: 65px;
+       padding-right: 65px;
+       text-decoration: none; /* Убирает подчеркивание для ссылок */
+}
+.articleDateAutor a{
+	     font-family: 'Titillium Web';
+       color: #8c4707 ;
+       padding-left: 5px;
+       font-size: 10pt;
+       text-decoration: none; /* Убирает подчеркивание для ссылок */
+}
+.articleCommentAutor p{
+	     font-family: 'Muli';
+       color: #8c4707 ;
+       padding-left: 30px;
+}
+.articleCommentText p{
+	     font-family: 'Muli';
+       color: #8c4707 ;
+       padding-left: 50px;
+}
+.articleAdd a{
+       background: #f7ff28;
+       width: 100px;
+       height: 35px;
+       float:right;
+}
+
+
+.image.first,.image.second {
+border:2px solid transparent;
+margin:0;
+padding:0;
+}
+
+.image.first {
+opacity:1px;
+display:block;
+position:100px;
+z-index:100;
+transition-duration:0.96s;
+-webkit-transition-duration:0.96s;
+-moz-transition-duration:0.96s;
+-o-transition-duration:0.96s;
+-ms-transition-duration:0.96s;
+}
+
+.image.first:hover {
+opacity:0.00;
+}
+
+div.ImgField {
+display:inline-block;
+background-position:center center;
+background-repeat:no-repeat;
+margin:0;
+padding:0;
+}
+
+html_ {
+    margin:auto;
+    padding:0;
+    height:100%;
+    max-width:80em;
+    background-color:#fff;
+    color:inherit;
+    }
+body_ {
+    display:table;
+    overflow-x:hidden;
+    margin:0 0 0 65%;
+    padding:0;
+    width:100%;
+    height:100%;
+    background-color:#f5f5f5;
+    box-shadow:0 .1em 1em #e5e5e5 inset;
+    color:inherit;
+    font:90%/1.45 'PT Serif', Georgia, 'Times New Roman', Times, serif;
+    }
+
+#middle {
+    margin:0 0 0 -65%;
+    padding:0;
+    width:100%;
+    height:100%;
+    }
+
+    #content {
+        float:left;
+        display:inline-block;
+        margin:0;
+        padding:2%;
+        width:61%;
+        }
+
+    #sidebar {
+        float:right;
+        display:inline-block;
+        margin:0;
+        padding:2%;
+        width:31%;
+        }

@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<head>
+    <title>Hi-Tech Mobile</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium Web&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Muli&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+</head>
+
+<div class="PageTitle">    
+      <h1> <a style="text-decoration:none" href="{% url 'article_list' %}"> Hi-Tech Mobile </a> </h1>
+</div> 
+
+<div>   
+<form class="post-form" method="POST" >
+	{% csrf_token %}
+	<h5> <a> Title </a></h5>
+	<h5> <a> {{ form.articleTitle }} </a></h5>
+	<h5> <a> Text </a></h5>
+	<h5> <a> {{ form.articleText }}</a></h5>
+	<button type="submit" class="save btn btn-default">Save</button>
+	</form>
+
+</div>
