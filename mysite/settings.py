@@ -26,7 +26,7 @@ SECRET_KEY = '%udd17_x3!gpsk(cv-zbv*2!+i0c&#cptu33%9qfnlld^zasv_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pythonanywhere.com']
 
 
 # Application definition

@@ -54,8 +54,7 @@ def addcomment(request, pk):
             comment.article_id = SiteName.objects.get(pk=pk)
             form.save()
     return redirect('/siteVisit/sitename/%s/' % pk)        
-    
-    
+   
 def article_add(request):
     if request.POST:
         form = NewArticleForm(request.POST)
@@ -64,8 +63,7 @@ def article_add(request):
             article.author = request.user
             article.created_date = timezone.now()
             article.save()
-            #return redirect('blog.views.post_detail', pk=post.pk)
-            return render(request,'siteVisit/Article_list.html', {'article': article})
+            return article_list(request)
     else:
         form = NewArticleForm()
     return render(request, 'siteVisit/Article_new.html', {'form': form})
@@ -77,7 +75,8 @@ def article_edit(request, pk):
         if form.is_valid():
             article = form.save(commit=False)
             article.save()
-            return render(request,'siteVisit/Article_detail.html', {'article': article})
+            #return render(request,'siteVisit/Article_detail.html', {'article': article})
+            return article_detail(request, pk)
     else:
         form = EditArticleForm(instance=article)
     return render(request, 'siteVisit/article_edit.html', {'form': form, 'article': article})

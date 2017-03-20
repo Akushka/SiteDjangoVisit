@@ -20,9 +20,10 @@
   
   <h1> Add new article </h1> 
   
-  <form action="/" method="POST" class="article-form">{% csrf_token %}
+  <form method="POST" class="article-form">
+  	 {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="save btn btn-default">Save</button>
+    <button href="siteVisit/Article_list.html" type="submit" class="save btn btn-default">Save</button>
   </form>
   
   

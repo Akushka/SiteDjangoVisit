@@ -14,7 +14,6 @@ class CommentForm(ModelForm):
 class NewArticleForm(ModelForm):
     class Meta:
         model = SiteName
-        fields = "__all__" 
         fields = ['author','articleTitle','articleText']
 
 class EditArticleForm(ModelForm):
