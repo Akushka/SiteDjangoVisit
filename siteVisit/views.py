@@ -4,7 +4,8 @@ from django.shortcuts import render, get_object_or_404, render_to_response,\
 from siteVisit.models import SiteName, CommentArticle
 from django.utils import timezone
 import os.path
-from django.core.context_processors import csrf
+#from django.core.context_processors import csrf
+from django.views.decorators.csrf import csrf_protect
 from .forms import CommentForm, NewArticleForm, EditArticleForm, FindArtikleForm, Feedback
 from django.template.loader import get_template
 from django.template import Context

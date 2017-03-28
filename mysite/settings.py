@@ -26,7 +26,7 @@ SECRET_KEY = '%udd17_x3!gpsk(cv-zbv*2!+i0c&#cptu33%9qfnlld^zasv_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['pythonanywhere.com']
+ALLOWED_HOSTS = ['anatoliy.pythonanywhere.com']
 
 
 # Application definition
@@ -128,6 +128,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com' #Например, smtp.gmail.com
-EMAIL_HOST_USER = 'mysiteadmkushka@gmail.com' #Например, user@gmail.com. Именно его необходимо указывать как ВАШ_EMAIL_ДЛЯ_ОТПРАВКИ_СООБЩЕНИЯ в исходном коде предыдущего пункта
+EMAIL_HOST = 'smtp.gmail.com' #пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, smtp.gmail.com
+EMAIL_HOST_USER = 'mysiteadmkushka@gmail.com' #пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, user@gmail.com. пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ_EMAIL_пїЅпїЅпїЅ_пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ_пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 EMAIL_HOST_PASSWORD = 'Qwerty987'
