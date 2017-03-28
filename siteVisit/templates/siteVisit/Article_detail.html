@@ -1,42 +1,23 @@
+{% extends 'siteVisit/BaseShablon.html' %}
 {% load staticfiles %}
-<html>
-  <head>
-    <title>Hi-Tech Mobile</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Titillium Web&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Muli&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Orbitron&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/article.css' %}">
-  </head>
-  
-<style>
-body 
-{
-  background: #c7b39b;
-  color: #fff;
 
-}
-</style>  
+{% block content %}	
 
-   <div class="PageTitle">    
-      <h1> <a href="{% url 'article_list'%}"> Hi-Tech Mobile </a> </h1>
-   </div> 
-   
-   
-<div class="articleAdd">    
-  <a><a class="btn btn-default" href="{% url 'article_edit' pk=article.id %}"> Edit article</button></a>
-</div>                       
+<br>
+<p class="rightstr articleAdd"> 
+  <a><a  href="{% url 'article_edit' pk=article.id %}"> Edit article</a>
+</p> 
+
 
 
 <div  class="articleTitle"> 
+		<div class="articleDateAutor"><h1> <a>{{ article.category }}  </a></h1></div>
 	 	<h1> <a>{{ article.articleTitle }}
 	 		<div class="articleDateAutor">  <a>{{ article.author }},   {{ article.created_date }} 
  		</div></a> </a></h1>
 </div>
 
-	
+
 <script type="text/javascript">
 var all_images = [];
   {% for imagePaths in article.imagePath %}
@@ -95,15 +76,22 @@ function chgImg2(imagePaths) {
 
 <p> Comment </p>
 {% for comment in comments %}
-<div  class="articleCommentAutor">  		   
- <p>{{comment.articleAuthor}}:</p>
-</div> 
-<div  class="articleCommentText">  		   
- <p>"{{comment.articleComment}}"</p>
-</div> 
- <hr>
-{% endfor %}
+	<div  class="articleCommentAutor">  		   
+	 <p>{{comment.articleAuthor}}:</p>
+	</div> 
+	<div  class="articleCommentText">  		   
+	 <p>"{{comment.articleComment}}"</p>
+	</div> 
 
+<div>  	 
+	<form action="/siteVisit/delComment/{{comment.id}}/"	method="post" >
+ 	 {% csrf_token %}
+	  <a><input  type = "image" class="delComment"  value="Delete comment"></a>
+  </form>
+</div> 
+	
+<hr>
+{% endfor %}
 
 <div  class="articleText">   
 <form action="/siteVisit/addcomment/{{article.id}}/"	method="post" >
@@ -115,6 +103,10 @@ function chgImg2(imagePaths) {
 	<input type = "submit" class="button" value="Add comment">
 </form>
 </div>
+
+
+
+{% endblock content %}
 		   
 		      
 </html>

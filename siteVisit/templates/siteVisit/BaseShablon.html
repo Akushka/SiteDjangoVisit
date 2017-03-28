@@ -1,0 +1,82 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <title>Hi-Tech Mobile</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Titillium Web&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Muli&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/article.css' %}">
+    <meta charset="utf-8">
+    
+  </head>
+  
+       
+<style>
+body 
+{
+  background: #c7b39b;
+  color: #0c0c0c;
+}
+</style>
+	
+<script type="text/javascript">
+function reloadPage()
+{
+  window.location.reload()
+}
+</script>
+  
+ 	
+<div class="PageTitle">    
+  <h1> <a href="{% url 'article_list' pk=0 %}"> Hi-Tech Mobile 
+      
+<!--    <input type="button" value="reload" onclick="reloadPage()" />  </a></h1> -->
+</div> 
+
+<br>
+<br>
+<br>
+<br>
+<br>   
+    
+<body>	
+
+
+<div class="div1 menuPage">
+ 	 <a> <a href="{% url 'article_list' pk=0 %}">  Всё                </a><br> 
+	 <a> <a href="{% url 'article_list' pk=1 %}">  Телефоны           </a><br> 
+   <a> <a href="{% url 'article_list' pk=2 %}">  Планшеты           </a><br> 
+   <a> <a href="{% url 'article_list' pk=3 %}">  Миникомпьютеры     </a><br> 
+   <a> <a href="{% url 'article_list' pk=4 %}">  Игровые консоли    </a><br> 
+   <a> <a href="{% url 'article_list' pk=5 %}">  Игрушки            </a><br> 
+   <a> <a href="{% url 'article_list' pk=6 %}">  Детские товары     </a><br> 
+   <a> <a href="{% url 'article_list' pk=7 %}">  Разное прикольное  </a><br> 
+</div>
+
+
+<div class="div2">
+{% block content %}
+{% endblock %}
+</div>
+
+
+
+
+
+</body>
+
+<div class="PageContact">    
+  <h1>   </h1> 
+</div> 
+
+<p class="leftstr">  <a href="{% url 'feedback'%}">  Feedback            </p>
+<p class="centerstr">  <a href="" >                     Up               </p>
+<p class="rightstr">                                 byAKushka           </p>
+<div style="clear: left"></div>
+
+
+
+</html>

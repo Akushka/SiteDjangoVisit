@@ -1,18 +1,61 @@
-.PageAll body,{
+@charset "utf-8";
+.PageAll body{
+	      background: #c7b39b;
+        color: #fff;
+}
+.delComment a{
 	     background: #c7b39b;
        color: #fff;
+       padding-left: 95px;
 }
 .PageTitle h1, .PageTitle a{
+	position: fixed; /* Фиксированное положение */
+	right: 0px; /* Расстояние от правого края окна браузера */
+	left: 0px;
+	top: 0%; /* Расстояние сверху */
+	border: 1px solid #333; /* Параметры рамки */ 
 	     background-color: #227f96;
-	     background-size: 100%; /* ����������� �������� */
-	     padding: 12px;
+	     background-size: 100%; /* Современные браузеры */
+	     padding: 10px;
 	     margin-top: 0;
 	      /*font-family: 'Orbitron';*/
-	     font-size: 60pt;
+	     font-size: 40pt;
        color: #f2ee1d;
-       /*padding-left: 15px;*/
-       text-decoration: inherit; /* ������� ������������� ��� ������ */
+       padding-left: 15px;
+       text-decoration: inherit; /* Убирает подчеркивание для ссылок */
 }
+
+    
+.PageContact h1{
+	     background-color: #706f6f;
+	     background-size: 100%; /* Современные браузеры */
+	     padding: 0.5px;
+	     margin-bottom: 0;
+	     position: relative; /* Относительное позиционирование */
+       left: 0;
+			 bottom: 0;
+			 width: 100%;
+	     border-bottom: 2px;
+       padding-left: 15px;
+}
+.leftstr, .rightstr, .centerstr {
+    float: left; /* Обтекание справа */ 
+    width: 33%; /* Ширина текстового блока */ 
+    font-size: 10pt;
+    /*font-family: 'Titillium Web';*/
+    color: #000000;
+    padding-left: 15px;
+}
+.rightstr {
+    text-align: right; /* Выравнивание по правому краю */ 
+    padding-right: 15px;
+    float: right; /* Обтекание справа */ 
+}
+.centerstr {
+    text-align: center; /* Выравнивание по правому краю */ 
+    padding-right: 15px;
+}
+   
 .articleTitle a{
        margin-top: 0;
 	     font-family: 'Titillium Web';
@@ -21,19 +64,19 @@
        padding-left: 15px;
 
 }
-.articleText a, .articleText h4 {
+.articleText a, .articleText h4{
 	     font-family: 'Muli';
        color: #8c4707 ;
        padding-left: 65px;
        padding-right: 65px;
-       text-decoration: none; /* ������� ������������� ��� ������ */
+       text-decoration: none; /* Убирает подчеркивание для ссылок */
 }
 .articleDateAutor a{
 	     font-family: 'Titillium Web';
        color: #8c4707 ;
        padding-left: 5px;
        font-size: 10pt;
-       text-decoration: none; /* ������� ������������� ��� ������ */
+       text-decoration: none; /* Убирает подчеркивание для ссылок */
 }
 .articleCommentAutor p{
 	     font-family: 'Muli';
@@ -45,14 +88,27 @@
        color: #8c4707 ;
        padding-left: 50px;
 }
-.articleAdd a{
-       background: #f7ff28;
-       width: 100px;
-       height: 35px;
-       float:right;
+.deleteComment p{
+	     background: #c7b39b;
+       color: #fff;
+       font-size: 10pt;
+       padding-left: 1000px;
 }
-
-
+.articleAdd a{
+       background: #808080;
+       color: #fff;
+       float:right;
+       margin-top: -30;
+       padding-right: -5px;
+}
+.findEdit a{
+       height: 100px;
+       padding-left: 10px;
+       margin-top: 50;
+}
+.temp a{
+       margin-top: 25;
+}
 .image.first,.image.second {
 border:2px solid transparent;
 margin:0;
@@ -126,3 +182,36 @@ body_ {
         padding:2%;
         width:31%;
         }
+        
+
+.menuPage a, .menuPage p , .menuPage br {
+position: fixed; 
+/*margin-left: 0px;
+top: 0;
+left: 0;
+z-index: 999;
+width: 271px;
+min-height: 100%;  высота блока всегда 100%  
+height: 1000px;*/
+}
+        
+.div1{    
+    width: 15%;
+  /*  min-height: 150px;
+    background: #ccc;*/
+    float: left;
+    font-size: 15pt;
+    color: #f2ee1d;
+    font-family: 'Titillium Web';
+}
+.div2{    
+    width: 85%;
+/*    min-height: 150px;
+    background: #c00;   */
+    margin-left: 15%;
+}
+.footer{
+    clear: left;
+   /* background: #000;
+    min-height: 50px;*/
+}        

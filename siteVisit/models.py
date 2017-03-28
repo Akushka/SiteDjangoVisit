@@ -4,13 +4,17 @@ from django.utils import timezone
 from django.contrib import admin
 # Create your models here.
 
+
 class SiteName(models.Model):
     class Meta():
         db_table = 'siteName'
     author = models.ForeignKey('auth.User')
+    category = models.CharField(max_length=20)
+    tryCategory = models.BooleanField()
     articleTitle = models.CharField(max_length=200)
     articleText = models.TextField()    
     articleTextPreview = models.TextField(max_length=50)
+    articleFindText = models.CharField(max_length=200, blank=True)
     created_date = models.DateTimeField(
             default=timezone.now)
     imagePath = []
@@ -20,25 +24,15 @@ class SiteName(models.Model):
         self.save()
     def __str__(self):
         return self.articleTitle
-
-
+    
 class CommentArticle(models.Model):
     class Meta():
         db_table = 'commentArticle'
     article_id = models.ForeignKey(SiteName)
-    articleAuthor = models.TextField(verbose_name = "Автор")    
+    articleAuthor = models.CharField(max_length=200,verbose_name = "Автор")    
     articleComment = models.TextField(verbose_name = "Текст комментария")    
     def __str__(self):
         return self.articleAuthor
     def publishCommen(self):
-        self.save()
-
-class Feedback(models.Model):
-    feedbackAuthor =  models.TextField(max_length=50)
-    feedbackEmail = models.TextField(max_length=50)
-    feedbackComment = models.TextField()    
-    def __str__(self):
-        return self.feedbackAuthor
-    def publishFeedback(self):
         self.save()
 

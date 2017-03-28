@@ -1,30 +1,19 @@
+{% extends 'siteVisit/BaseShablon.html' %}
 {% load staticfiles %}
 
 
 
-<html>
-  <head>
-    <title>Hi-Tech Mobile</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Titillium Web&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Muli&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Orbitron&subset=latin,cyrillic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/article.css' %}">
-  </head>
-  
-<div class="PageTitle">    
-      <h1> <a style="text-decoration:none" href="{% url 'article_list'%}"> Hi-Tech Mobile </a> </h1>
-   </div> 
-  
+{% block content %}	
+   
+    
   <h1> Add new article </h1> 
   
   <form method="POST" class="article-form">
-  	 {% csrf_token %}
+  	{% csrf_token %}
     {{ form.as_p }}
-    <button href="siteVisit/Article_list.html" type="submit" class="save btn btn-default">Save</button>
+    <button type="submit" class="save btn btn-default">Save</button>
   </form>
   
-  
-  </html>
+
+{% endblock content %}  
+</html>
