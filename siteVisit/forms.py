@@ -3,9 +3,15 @@
 _autor_ ='macpro'
 
 from django.forms import ModelForm
-from .models import CommentArticle, SiteName
+from .models import CommentArticle, SiteName, imageInArticle
 from django import forms
+from django.forms import CharField, Form, PasswordInput
 
+class AutentificationUser(forms.Form):
+    userName = CharField(widget=forms.TextInput())  
+    password = CharField(widget=PasswordInput())
+    fields = ['userName','passw']
+        
 class CommentForm(ModelForm):
     class Meta:
         model = CommentArticle
@@ -15,13 +21,19 @@ class CommentForm(ModelForm):
 class NewArticleForm(ModelForm):
     class Meta:
         model = SiteName
-        fields = ['author','articleTitle','articleText','category']
+        fields = ['id','author','articleTitle','articleText','category']
+        
+class AddImage(ModelForm):
+    class Meta:
+        model = imageInArticle
+        fields = ['imagePath']
+                
 
 class EditArticleForm(ModelForm):
     class Meta:
         model = SiteName
         fields = "__all__" 
-        fields = ['articleTitle','articleText','category']
+        fields = ['id','author','articleTitle','articleText','category']
         
 
 class FindArtikleForm(ModelForm):

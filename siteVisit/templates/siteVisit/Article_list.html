@@ -18,32 +18,39 @@
   <input<a><a  href="{% url 'article_add'%}"> New article</a>
 </p> 
 
-
-
     
 <!--   
     <div class="temp">   
       <a><a class="btn btn-default" href="{% url 'test' %}"> Test </button></a>  
     </div> 
 -->  
-
-   
   
  		<br>
+ 				
 	 	{% for article in articles %}
    		<hr>
+   		
 		 	 <div  class="articleTitle"> 
-			 	  <h1> <a href="{% url 'article_detail' pk=article.pk %}">{{ article.articleTitle }}  <img src= {% static  article.imagePathBegin %} width="50" height="50">  
-			 		
+			 	  <h1> <a href="{% url 'article_detail' pk=article.pk %}">{{ article.articleTitle }}  <img src= {{article.imagePathBegin}} width="50" height="50">  
 			 		<div  class="articleDateAutor">  <a>{{ article.author }},   {{ article.created_date }} 
 			 		</div></a> </a></h1>
 	     </div>
 		 	 <div  class="articleText">    
   		  	<h4>  <a> {{ article.articleTextPreview }} </a></h4>
 		   </div>
+		   
+		   <div>  	 
+		   <form action="/siteVisit/delArticle/{{article.pk}}/"	method="post" >
+		 	    {% csrf_token %}
+		 	    {{article.Username}}
+		 	    {% if article.Username == anatoliy %}
+			      <a><input  type = "image" class="delComment"  value="Delete Article"></a>
+			    {% endif %}
+			    
+	     </form>
+    	</div> 
 
 	 	{% endfor %}
-
 
 <div style="clear: left"></div>
 

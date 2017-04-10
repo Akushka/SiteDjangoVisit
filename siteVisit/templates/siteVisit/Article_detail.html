@@ -1,6 +1,7 @@
 {% extends 'siteVisit/BaseShablon.html' %}
 {% load staticfiles %}
 
+
 {% block content %}	
 
 <br>
@@ -20,8 +21,8 @@
 
 <script type="text/javascript">
 var all_images = [];
-  {% for imagePaths in article.imagePath %}
-		 all_images.push('{% static  imagePaths %}')
+  {% for image in images %}
+		 all_images.push('{{image.imagePath.url}}')
   {% endfor %}
 
 var ImgNum = 0;
@@ -44,16 +45,35 @@ function chgImg2(imagePaths) {
 }
 </script>
 
+
+
+<div class="div1">
+   {% for image in images %}
+	   <a> <a href="javascript:chgImg2('{{image.imagePath.url}}')"> <img src= {{image.imagePath.url}} width="70" height="70"></a>
+	 {% endfor %}
+</div>
+
+<!--
+<h1>{{ article.articleTitle }}
+{% for image in images %}
+	<a>{{ MEDIA_URL }}{{image.imagePath.url}} </a>
+  <img src= {{image.imagePath.url}} >
+{% endfor %}
+</h1>
+	
 <div>
    {% for imagePaths in article.imagePath %}
 	   <a> <a href="javascript:chgImg2('{% static  imagePaths %}')"> <img src= {% static  imagePaths %} width="70" height="70"></a>
 	 {% endfor %}
 </div>
+-->
+
+
 
 <div><h3></h3>
  <table border="0">
   <tr>
-      <td colspan="3"><img src={% static  article.imagePathBegin %}  name="slide_show"></td>
+    <td colspan="3"><img src={% static  article.imagePathBegin %}  name="slide_show" width="700" ></td>
   </tr>
  </table>
 </div>
@@ -74,8 +94,13 @@ function chgImg2(imagePaths) {
  	<h4> <a> {{ article.articleText|linebreaksbr }} </a></h4>
 </div>
 
+<hr>
+
+
 <p> Comment </p>
+
 {% for comment in comments %}
+
 	<div  class="articleCommentAutor">  		   
 	 <p>{{comment.articleAuthor}}:</p>
 	</div> 
@@ -83,12 +108,12 @@ function chgImg2(imagePaths) {
 	 <p>"{{comment.articleComment}}"</p>
 	</div> 
 
-<div>  	 
-	<form action="/siteVisit/delComment/{{comment.id}}/"	method="post" >
- 	 {% csrf_token %}
-	  <a><input  type = "image" class="delComment"  value="Delete comment"></a>
-  </form>
-</div> 
+	<div>  	 
+		<form action="/siteVisit/delComment/{{comment.id}}/"	method="post" >
+	 	 {% csrf_token %}
+		  <a><input  type = "image" class="delComment"  value="Delete comment"></a>
+	  </form>
+	</div> 
 	
 <hr>
 {% endfor %}

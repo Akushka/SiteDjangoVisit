@@ -14,17 +14,58 @@
 	left: 0px;
 	top: 0%; /* Расстояние сверху */
 	border: 1px solid #333; /* Параметры рамки */ 
-	     background-color: #227f96;
-	     background-size: 100%; /* Современные браузеры */
-	     padding: 10px;
-	     margin-top: 0;
-	      /*font-family: 'Orbitron';*/
-	     font-size: 40pt;
-       color: #f2ee1d;
-       padding-left: 15px;
-       text-decoration: inherit; /* Убирает подчеркивание для ссылок */
+	background-color: #F3FE2C /*#227f96*/;
+	background-size: 100%; /* Современные браузеры */
+	padding: 10px;
+	margin-top: 0;
+	 /*font-family: 'Orbitron';*/
+	font-size: 40pt;
+  color: #939A01;
+  padding-left: 15px;
+  text-decoration: inherit; /* Убирает подчеркивание для ссылок */
 }
 
+.userVal p, .userVal a{
+	position: fixed; /* Фиксированное положение */
+	right: 10px; /* Расстояние от правого края окна браузера */
+	
+	background-color: #F3FE2C /*#227f96*/;
+/*	padding: 10px;*/
+	margin-top: 10;
+	 /*font-family: 'Orbitron';*/
+	font-size: 10pt;
+  color: #939A01;
+  padding-left: 15px;
+  text-decoration: inherit; /* Убирает подчеркивание для ссылок */
+}
+.buttonLog{
+ position: fixed;
+ margin-top: 6; 
+ right: 10px;
+ height: 22;
+ font-size: 13;
+}
+
+
+
+/*Выпавниваем картинки при редактировании в строку*/
+.sign {
+ float: left; /* Выравнивание по левому краю */
+ border: 1px solid #333; /* Параметры рамки */
+ padding: 7px; /* Поля внутри блока */
+ margin: 10px 0 5px 5px; /* Отступы вокруг */
+ background: #f0f0f0; /* Цвет фона */ 
+}
+.sign figcaption {
+ margin: 0 auto 5px; /* Отступы вокруг абзаца */
+}
+
+  
+.rightstrPass {
+    text-align: right; /* Выравнивание по правому краю */ 
+    padding-right: 5px;
+    float: right; /* Обтекание справа */ 
+}
     
 .PageContact h1{
 	     background-color: #706f6f;
